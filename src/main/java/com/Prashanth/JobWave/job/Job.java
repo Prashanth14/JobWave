@@ -1,5 +1,6 @@
 package com.Prashanth.JobWave.job;
 
+import com.Prashanth.JobWave.company.Company;
 import jakarta.persistence.*;
 
 @Entity
@@ -13,6 +14,9 @@ public class Job {
     private String minSalary;
     private String maxSalary;
     private String location;
+
+    @ManyToOne
+    private Company company;
 
     //Without default constructor JPA wont be able to instantiate any entity object
     public Job() {
@@ -73,5 +77,13 @@ public class Job {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
 }

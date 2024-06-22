@@ -1,5 +1,6 @@
 package com.Prashanth.JobWave.job;
 
+import com.Prashanth.JobWave.company.Company;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +24,7 @@ public class JobController {
     @PostMapping
     public ResponseEntity<String> createJob(@RequestBody Job job){
         jobService.createJob(job);
+        Company c = job.getCompany();
         return new ResponseEntity<>("Job added Successfully", HttpStatus.CREATED);
     }
 
